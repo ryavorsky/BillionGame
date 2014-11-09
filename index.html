@@ -1,27 +1,68 @@
 <html>
 <head>
 	<title>5 минут</title>
+    <link rel="shortcut icon" href="one_m.ico">
 </head>
-<body>
+<body  style="background:#8a8">
 <h2>Викторина</h2>
 
-<table width="800" border="1">
-<tr>
-	<td width="33%">
-		<a href="rules.html">Правила игры</a>
-	</td>
-	<td width="33%">
-		<a href="references.html">Данные</a>
-	</td>
-	<td width="33%">
-		<a href="best.html">Лучшие игроки</a>
-	</td>
-</tr>
-<tr>
-	<td colspan="3">
-	<a href="play.html">Играть</a>
-</td>
-</tr>
-</table>
+<div style="text-align:center">
+
+<svg width="800" height="264">
+
+    <style type="text/css" >
+      <![CDATA[
+
+       rect.menu {
+		   stroke: #660000;
+		   fill:   blue;
+		   stroke:#777; 
+		   stroke-width:10;
+    }
+	
+	text{
+    pointer-events: none;
+	fill:#ddd;
+	font-family:arial; 
+	font-size: 28px;
+	}
+
+      ]]>
+    </style>
+
+	<rect class="bg"; x="1" y="1" width="100%" height="100%" style="fill:#aaa;" />
+	
+	<a xlink:href="rules.html">
+	  <rect class="menu" x="7" y="7" rx="20" ry="20" width="255" height="120" 
+		onmouseover="evt.target.setAttribute('style', 'fill:red')"
+		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
+		/>
+	  <text x="35" y="75">Правила игры</text>
+	</a>
+	<a xlink:href="best.html">
+	  <rect class="menu" x="273" y="7" rx="20" ry="20" width="255" height="120" 
+		onmouseover="evt.target.setAttribute('style', 'fill:red')"
+		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
+		/>
+	  <text x="317" y="75">Победители</text>
+	</a>
+	<a xlink:href="references.html">
+	  <rect class="menu" x="539" y="7" rx="20" ry="20" width="255" height="120" 
+		onmouseover="evt.target.setAttribute('style', 'fill:red')"
+		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
+		/>
+		<text x="577" y="75">О программе</text>
+	</a>
+	<a xlink:href="play.html">
+	  <rect class="menu" x="7" y="138" rx="20" ry="20" width="787" height="120" 
+		onmouseover="evt.target.setAttribute('style', 'fill:red')"
+		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
+		/>
+		<text x="305" y="209" style="font-family:arial; fill:yellow; font-size: 44px;">С Т А Р Т</text>
+	</a>
+</svg>		
+</div>
+
+<br/><br/><br/>&#169; VA-Labs, 2014
 </body>
 </html>
