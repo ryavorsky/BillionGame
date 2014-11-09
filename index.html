@@ -2,50 +2,21 @@
 <head>
 	<title>Триллион</title>
     <link rel="shortcut icon" href="one_m.ico">
-    <style type="text/css" >
-	rect.menu {
-		stroke: #660000;
-		fill:   blue;
-		stroke:#777; 
-		stroke-width:10;
-	}
-
-	text {
-		pointer-events: none;
-		fill:#dfd;
-		font-family:arial; 
-		font-size: 28px;
-	}
-	
-	body {
-  background-color: #fff;
-  }
-	.intro {
-		font-family:arial; 
-		font-size: 22px;
-		text-align:center; 
-		color:#207;
-	}
-	
-	.bottom{
-		font-family:arial; 
-		font-size: 16px;
-		text-align:left;
-		color: blue;
-	}
-	
-	
-    </style>
+	<link rel=StyleSheet href="style.css" type="text/css">
 </head>
 
-<div  text-width="800" class="intro">
+<div  text-width="800" class="info" style="text-align:center"/>
 
-Игра-викторина  
-<p><b><i>Потрать <u>1 триллион</u> за пять минут правильно</i></b>
+Игра-викторина  <br/><br/>
 
-<p> Ежегодно в России в рамках госзакупок заключается 
-<br/>более 300 контрактов на сумму свыше <b>1 млрд руб</b>
-<br /> (в среднем один контракт каждый день).
+<svg width="800" height="64">
+	<rect class="title"; x="1" y="1"  rx="20" ry="20" width="798" height="62"/>
+	<text class="title" x="220" y="41">ТРИЛЛИОН ЗА ПЯТЬ МИНУТ</text>
+</svg>
+
+<p> Ежегодно в России в рамках программы госзакупок заключается 
+<br/>более 300 контрактов на сумму свыше <b>1 млрд</b> руб.
+<br /> В среднем один миллиардный+ контракт каждый день.
 
 <p> Общая стоимость таких закупок превышает 
 <br/><b>1 триллион рублей</b>.
@@ -72,7 +43,7 @@
 		/>
 	  <text x="317" y="75">Победители</text>
 	</a>
-	<a xlink:href="references.html">
+	<a xlink:href="about.html">
 	  <rect class="menu" x="539" y="7" rx="20" ry="20" width="255" height="120" 
 		onmouseover="evt.target.setAttribute('style', 'fill:red')"
 		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
@@ -84,11 +55,11 @@
 		onmouseover="evt.target.setAttribute('style', 'fill:red')"
 		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
 		/>
-		<text x="305" y="209" style="font-family:arial; fill:yellow; font-size: 44px;">С Т А Р Т</text>
+		<text x="305" y="209" style="font-family:arial; fill:yellow; font-size: 44px;font-weight:bold;">С Т А Р Т</text>
 	</a>
 </svg>		
 </div>
 
-<div class="bottom">&#169; VA-Labs, 2014</div>
+<br/><br/><div class="bottom">&#169; VA-Labs, 2014</div>
 </body>
 </html>

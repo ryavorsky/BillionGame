@@ -1,0 +1,64 @@
+rect.title {
+	stroke: #660000;
+	fill:white;
+	stroke:black; 
+	stroke-width:1;
+}
+
+text.title {
+	fill:#dfd;
+	font-family:arial; 
+	font-size: 28px;
+	font-weight:bold;
+	fill: #207;
+}
+
+text.subtitle {
+	fill:#dfd;
+	font-family:arial; 
+	font-size: 28px;
+	fill: #207;
+}
+
+rect.menu {
+	stroke: #660000;
+	fill:   blue;
+	stroke:#777; 
+	stroke-width:10;
+}
+
+text {
+	pointer-events: none;
+	fill:#fff ;
+	font-family:arial; 
+	font-size: 28px;
+}
+
+body {
+background-color: #fff;
+}
+
+div {
+	width: 805px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	
+.intro {
+	font-family:arial; 
+	font-size: 22px;
+	color:#207;
+}
+
+.info {
+	font-family:arial; 
+	font-size: 18px;
+	color:#207;
+}
+
+.bottom{
+	font-family:arial; 
+	font-size: 16px;
+	text-align:left;
+	color: blue;
+}
