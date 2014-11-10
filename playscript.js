@@ -5,6 +5,7 @@ var cur;
 var step = 1;
 var options = [10,20,30,40];
 var correct = 0;
+var worst = 1;
 
 function go() {
 	cur = new Date().getTime();
@@ -72,12 +73,19 @@ function Selected(e){
 	} else {
 		alert("Incorrect");
 	};
-	correct = 1 - correct;
+	correct = worst;
+	worst = 1 - correct;
 }
 
 function MouseOver(e){
+	id = e.currentTarget.id[7];
+	if (id==worst) {
+	e.currentTarget.setAttribute("style", "fill:red; stroke:#999; stroke-width:3");
+	} else {
 	e.currentTarget.setAttribute("style", "fill:yellow; stroke:#999; stroke-width:3");
+	}
 }
+
 function MouseOut(e){
 	e.currentTarget.setAttribute("style", "fill:white; stroke:#999; stroke-width:3");
 }
