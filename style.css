@@ -44,21 +44,21 @@ div {
 	margin-right: auto;
 	}
 	
-.intro {
+div.intro {
 	font-family:arial; 
 	font-size: 22px;
 	color:#207;
 }
 
-.info {
+div.info {
 	font-family:arial; 
 	font-size: 18px;
 	color:#207;
 }
 
-.bottom{
+div.bottom{
 	font-family:arial; 
 	font-size: 16px;
 	text-align:left;
-	color: blue;
+	color: #aaa;
 }
