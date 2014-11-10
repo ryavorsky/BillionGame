@@ -1,8 +1,13 @@
 rect.title {
-	stroke: #660000;
 	fill:white;
 	stroke:black; 
 	stroke-width:1;
+}
+
+rect.menu {
+	fill:   blue;
+	stroke:#777; 
+	stroke-width:10;
 }
 
 text.title {
@@ -20,12 +25,6 @@ text.subtitle {
 	fill: #207;
 }
 
-rect.menu {
-	stroke: #660000;
-	fill:   blue;
-	stroke:#777; 
-	stroke-width:10;
-}
 
 text {
 	pointer-events: none;
