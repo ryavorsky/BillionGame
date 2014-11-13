@@ -40,29 +40,36 @@
 </div>
 
 <div id="playfield" class="info" style="display: none;">
-Lalala
-    <div id="x">0</div>
+<div>
+	<h1 id="w0" style="display: inline-block">Time:</h1>
+    <h1 id="x" style="display: inline-block">0</h1>
+	<h1 id="w1" style="display: inline-block">:</h1>
+	<h1 id="y" style="display: inline-block">0</h1>
+	<h1 id="q" style="display: inline-block">0</h1>
+	<h1 id="w2" style="display: inline-block">.</h1>
+	<h1 id="z" style="display: inline-block">0</h1>
+</div>
 <svg id="svg_field" width="800" height="550">
 	<rect x="0" y="0" rx="20" ry="20" width="100%" height="100%" fill="#ddd"/>
 
 	<rect id="r_descr" class="menu" x="7" y="100" rx="20" ry="20" width="786" height="302" />
-	<text x="58" y="155" style="font-family:arial; fill:yellow; font-size: 32px;">Date</text>
-	<text x="58" y="205" style="font-family:arial; fill:yellow; font-size: 24px;">Region</text>
-	<text x="58" y="255" style="font-family:arial; fill:yellow; font-size: 28px;">Buyer</text>
-	<text x="58" y="305" style="font-family:arial; fill:yellow; font-size: 32px;">Scope</text>
+	<text x="33" y="155" style="font-family:arial; fill:yellow; font-size: 28px;">Дата</text>
+	<text x="33" y="205" style="font-family:arial; fill:yellow; font-size: 28px;">Регион</text>
+	<text x="33" y="255" style="font-family:arial; fill:yellow; font-size: 28px;">Заказчик</text>
+	<text x="33" y="305" style="font-family:arial; fill:yellow; font-size: 28px;">Предмет</text>
 
 	<text id="t_descr0" x="165" y="155" style="font-family:courier; fill:white; font-size: 32px;">Date</text>
 	<text id="t_descr1" x="165" y="205" style="font-family:arial; fill:white; font-size: 24px;">Region</text>
 	<text id="t_descr2" x="165" y="255" style="font-family:arial; fill:white; font-size: 28px;">Buyer</text>
 	<text id="t_descr3" x="165" y="305" style="font-family:arial; fill:white; font-size: 32px;">Scope</text>
-	<text id="t_descr4" x="165" y="340" style="font-family:arial; fill:white; font-size: 24px;">Scope details</text>
-	<text id="t_descr5" x="165" y="375" style="font-family:arial; fill:white; font-size: 24px;">Scope details</text>
+	<text id="t_descr4" x="165" y="340" style="font-family:arial; fill:white; font-size: 24px;">Первая строка подробнстей</text>
+	<text id="t_descr5" x="165" y="375" style="font-family:arial; fill:white; font-size: 24px;">вторая строка подробностей</text>
 
 	<rect id="r_correct" class="menu" x="7" y="413" rx="20" ry="20" width="250" height="80" />
-	<text id="t_correct" x="58" y="463" style="font-family:arial; fill:yellow; font-size: 44px;">Correct</text>
+	<text id="t_correct" x="58" y="463" style="font-family:arial; fill:#9f9; font-size: 44px;">Correct</text>
 
 	<rect id="r_wrong" class="menu" x="543" y="413" rx="20" ry="20" width="250" height="80" />
-	<text id="t_wrong" x="605" y="463" style="font-family:arial; fill:yellow; font-size: 44px;">Wrong</text>
+	<text id="t_wrong" x="605" y="463" style="font-family:arial; fill:red; font-size: 44px;">Wrong</text>
 	
 </svg>		
 

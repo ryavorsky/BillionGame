@@ -14,17 +14,24 @@ var total_correct = 0;
 var total_wrong = 0;
 
 function go() {
-	current_time = new Date().getTime();
 	document.getElementById('config').style.display ="none";
 	document.getElementById('playfield').style.display ="";
+	current_time = new Date().getTime();
+	tim = window.setInterval(action, 100);
 	create_options();
-	tim = window.setInterval(action, 1000);
-	setTimeout(function() {clearInterval(tim);}, 301000);
+	setTimeout(function() {clearInterval(tim);}, 300250);
 }
 
 function action() {
-	document.getElementById('x').innerHTML = (parseInt((new Date().getTime()-current_time)/1000)).toString();
-		}
+	document.getElementById('z').innerHTML 
+		= (parseInt(((new Date().getTime()-current_time)%1000)/100)).toString();
+	document.getElementById('y').innerHTML 
+		= (parseInt((new Date().getTime()-current_time)/10000)%6).toString();
+	document.getElementById('q').innerHTML 
+		= (parseInt(((new Date().getTime()-current_time)/1000)%10)).toString();
+	document.getElementById('x').innerHTML 
+		= (parseInt((new Date().getTime()-current_time)/60000)).toString();
+}
 
 function create_options(){
 	n_options = number_of_options();
