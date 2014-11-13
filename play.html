@@ -1,29 +1,29 @@
 <html>
 <head>
-	<title>Триллион - Играть</title>
+	<title>РўСЂРёР»Р»РёРѕРЅ - РРіСЂР°С‚СЊ</title>
+	<meta charset="utf-8"> 
     <link rel="shortcut icon" href="one_m.ico">
 	<link rel=StyleSheet href="style.css" type="text/css">
     <script type="text/javascript" src="playscript.js"></script>
+    <script type="text/javascript" src="data.js"></script>
 </head>
 <body>
 <div id="config" class="info">
 
 <svg width="800" height="64">
 	<rect class="title"; x="1" y="1"  rx="20" ry="20" width="798" height="62"/>
-	<text class="subtitle" x="210" y="41">Настройка параметров и старт</text>
+	<text class="subtitle" x="210" y="41">РќР°СЃС‚СЂРѕР№РєР° РїР°СЂР°РјРµС‚СЂРѕРІ Рё СЃС‚Р°СЂС‚</text>
 </svg>
 
-<h3>Выберите уровень</h3>
+<h3>Р’С‹Р±РµСЂРёС‚Рµ СѓСЂРѕРІРµРЅСЊ</h3>
 
+<input id="level_1" name="level" type="radio"> 1 - "Р”Р°" РёР»Рё "РќРµС‚"</input>
+<br/><br/><input id="level_2" name="level" type="radio" /> 2 - Р”РІР° (РЅРµРїСЂР°РІРёР»СЊРЅС‹С…) РїСЂРѕС‚РёРІ РѕРґРЅРѕРіРѕ (РїСЂР°РІРёР»СЊРЅРѕРіРѕ)
+<br/><br/><input id="level_3" name="level" type="radio" /> 3 - Р­РєСЃРїРµСЂС‚
 
-<input id="level_0" name="level" type="radio" selected="true" /> Обучение
-<br/><br/><input id="level_1" name="level" type="radio"> 1 - Быть или не быть</input>
-<br/><br/><input id="level_2" name="level" type="radio" /> 2 - Сообрази из троих
-<br/><br/><input id="level_3" name="level" type="radio" /> 3 - Эксперт
+<h3>РќСѓР¶РµРЅ Р»Рё РІР°Рј РїРѕРјРѕС‰РЅРёРє?</h3>
 
-<h3>Нужен ли вам помощник?</h3>
-
-<input type="checkbox" id="advisor" /> Да, использовать визуальную подсказку
+<input type="checkbox" id="advisor" /> Р”Р°, РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІРёР·СѓР°Р»СЊРЅСѓСЋ РїРѕРґСЃРєР°Р·РєСѓ
 
 <br/><br/>
 
@@ -33,7 +33,7 @@
 		onmouseout="evt.target.setAttribute('style', 'fill:blue')"
 		onclick="go();"
 		/>
-		<text x="305" y="79" style="font-family:arial; fill:yellow; font-size: 44px;">ПОЕХАЛИ</text>
+		<text x="305" y="79" style="font-family:arial; fill:yellow; font-size: 44px;">РџРћР•РҐРђР›Р</text>
 </svg>		
 
 
@@ -42,15 +42,35 @@
 <div id="playfield" class="info" style="display: none;">
 Lalala
     <div id="x">0</div>
-<svg id="svg_field" width="800" height="500">
-	  <rect x="0" y="0" rx="20" ry="20" width="100%" height="100%" fill="#ddd"/>
+<svg id="svg_field" width="800" height="550">
+	<rect x="0" y="0" rx="20" ry="20" width="100%" height="100%" fill="#ddd"/>
+
+	<rect id="r_descr" class="menu" x="7" y="100" rx="20" ry="20" width="786" height="302" />
+	<text x="58" y="155" style="font-family:arial; fill:yellow; font-size: 32px;">Date</text>
+	<text x="58" y="205" style="font-family:arial; fill:yellow; font-size: 24px;">Region</text>
+	<text x="58" y="255" style="font-family:arial; fill:yellow; font-size: 28px;">Buyer</text>
+	<text x="58" y="305" style="font-family:arial; fill:yellow; font-size: 32px;">Scope</text>
+
+	<text id="t_descr0" x="165" y="155" style="font-family:courier; fill:white; font-size: 32px;">Date</text>
+	<text id="t_descr1" x="165" y="205" style="font-family:arial; fill:white; font-size: 24px;">Region</text>
+	<text id="t_descr2" x="165" y="255" style="font-family:arial; fill:white; font-size: 28px;">Buyer</text>
+	<text id="t_descr3" x="165" y="305" style="font-family:arial; fill:white; font-size: 32px;">Scope</text>
+	<text id="t_descr4" x="165" y="340" style="font-family:arial; fill:white; font-size: 24px;">Scope details</text>
+	<text id="t_descr5" x="165" y="375" style="font-family:arial; fill:white; font-size: 24px;">Scope details</text>
+
+	<rect id="r_correct" class="menu" x="7" y="413" rx="20" ry="20" width="250" height="80" />
+	<text id="t_correct" x="58" y="463" style="font-family:arial; fill:yellow; font-size: 44px;">Correct</text>
+
+	<rect id="r_wrong" class="menu" x="543" y="413" rx="20" ry="20" width="250" height="80" />
+	<text id="t_wrong" x="605" y="463" style="font-family:arial; fill:yellow; font-size: 44px;">Wrong</text>
+	
 </svg>		
 
 </div>
 
 <div class="info">
-<p align="center"><a href="index.html">Вернуться в начало</a> 
-<br/><div class="bottom">&#169; VA-Labs, 2014</div>
+<p align="center"><a href="index.html">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РЅР°С‡Р°Р»Рѕ</a> 
+<br/><div class="bottom">&#169; VizLabs, 2014</div>
 </div>
 </body>
 </html>
