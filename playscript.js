@@ -49,20 +49,20 @@ function create_options(){
 		r.setAttribute("rx", "10");
 		r.setAttribute("ry", "10");
 		r.setAttribute("x", String(i*size+27));
-		r.setAttribute("y", "17");
+		r.setAttribute("y", "88");
 		r.setAttribute("width", String(size-10));
 		r.setAttribute("height", "50");
 		svg_field.appendChild(r);
 
 		var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
 		t.setAttribute("id", "option_text_"+String(i));
-		t.setAttribute("style", "fill:cyan; stroke:#777; stroke-width:0.5");
+		t.setAttribute("style", "fill:green; stroke:#777; stroke-width:1.0");
 		t.setAttribute("class", "option");
 		t.setAttribute("text-anchor", "middle");
 		t.setAttribute("alignment-baseline", "middle");
 		t.setAttribute("font-size", "18");
 		t.setAttribute("x", String(i*size + 17 + size/2));
-		t.setAttribute("y", "44");
+		t.setAttribute("y", "118");
 		svg_field.appendChild(t);
 	};	
 
@@ -96,7 +96,7 @@ function update_options(){
 	} else {
 	
 		// compute the amount options
-		current_amount = data[step][4];
+		current_amount = data[step][5];
 		correct_option = Math.floor(1.0 * n_options * Math.random());
 		worst = (correct_option+1) % 3;
 		for (i=0; i< n_options; i++){
@@ -110,10 +110,22 @@ function update_options(){
 		}
 		
 		//fill the contract data
-		for (j=0; j<4; j++){
-			t_elem = document.getElementById("t_descr"+String(j));
-			t_elem.textContent = data[step][j];
+		for (j=0; j<5; j++){
+			if (j<3){
+				elem_id = "t_descr"+String(j);
+				t_elem = document.getElementById(elem_id);
+				t_elem.textContent = data[step][j];
+			} else {
+				var details = WrapText(data[step][j]);
+				for(var k=0; k<details.length; k++){
+					elem_id = "t_descr"+String(j)+String(k);
+					//alert(elem_id);
+					t_elem = document.getElementById(elem_id);
+					t_elem.textContent = details[k];				
+				};
+			};
 		};
+
 		step++;
 	}
 }
@@ -134,3 +146,36 @@ function MouseOut(e){
 function finalize(){
 	alert ('Done!');
 };
+
+function WrapText(input_line){
+
+    var MAXIMUM_CHARS_PER_LINE = 48;
+
+    var words = String(input_line).split(" ");
+    var cur_line = "";
+	var res = [];
+	//alert (words);
+    for (var num = 0; num < words.length; num++) {
+        var testLine = cur_line + String(words[num]) + " ";
+		if(num == words.length - 1) {
+			if (testLine.length > MAXIMUM_CHARS_PER_LINE){
+				res.push(cur_line); res.push(String(words[num]));
+			} else {
+				res.push(testLine);
+			};
+		} else {
+			if (testLine.length > MAXIMUM_CHARS_PER_LINE) {
+				res.push(cur_line);
+				cur_line = "";
+			} else {
+				cur_line = testLine;
+			};
+		};
+    };
+	
+	while(res.length < 3){res.push('');};
+	while(res.length > 3){res.pop();};
+	
+	return res;
+	
+}
