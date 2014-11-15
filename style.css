@@ -61,3 +61,16 @@ div.bottom{
 	text-align:left;
 	color: #aaa;
 }
+
+h1 {
+	font-family:arial; 
+	font-size: 32px;
+	color:#207;
+}
+
+span.results {
+	font-family:courier; 
+	font-size: 28px;
+	font-weight:bold;
+	color:red;
+}

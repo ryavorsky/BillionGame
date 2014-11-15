@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Триллион - Играть</title>
+	<title>Миллиарды - Играть</title>
 	<meta charset="utf-8"> 
     <link rel="shortcut icon" href="one_m.ico">
 	<link rel=StyleSheet href="style.css" type="text/css">
@@ -41,13 +41,13 @@
 
 <div id="playfield" class="info" style="display: none;">
 <div>
-	<h1 id="w0" style="display: inline-block">Таймер &nbsp;</h1>
-    <h1 id="x" style="display: inline-block">0</h1>
+	<h1 id="w0" style="display: inline-block">Ваше время &nbsp;</h1>
+    <h1 id="x"  style="display: inline-block">0</h1>
 	<h1 id="w1" style="display: inline-block">:</h1>
-	<h1 id="y" style="display: inline-block">0</h1>
-	<h1 id="q" style="display: inline-block">0</h1>
+	<h1 id="y"  style="display: inline-block">0</h1>
+	<h1 id="q"  style="display: inline-block">0</h1>
 	<h1 id="w2" style="display: inline-block">.</h1>
-	<h1 id="z" style="display: inline-block">0</h1>
+	<h1 id="z"  style="display: inline-block">0</h1>
 </div>
 <svg id="svg_field" width="800" height="550">
 	<rect x="0" y="0" rx="20" ry="20" width="100%" height="100%" fill="#ddd"/>
@@ -84,9 +84,24 @@
 
 </div>
 
-<div class="info">
+<div id="results" class="info" style="display: none;">
+<h3>Ваш результат:</h3>
+
+<p> Время: &nbsp;&nbsp;&nbsp;&nbsp;<span id="res_time" class="results">Время</span>
+
+<p> Количество контрактов: &nbsp; <span id="res_steps" class="results">Количесвто</span>
+
+<p> Правильных ответов: &nbsp; <span id="res_correct" class="results" >Правильных</span>
+
+<p> Сумма правильно потраченых денег: &nbsp; <span id="res_correct_amount" class="results" >Сумма</span>
+
+
+<p align="center"><a href="best.html">Таблица рекордов</a> 
+
+</div>
+
 <p align="center"><a href="index.html">Вернуться в начало</a> 
 <br/><div class="bottom">&#169; VizLabs, 2014</div>
-</div>
+
 </body>
 </html>

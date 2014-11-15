@@ -3,21 +3,24 @@ var i=0;
 var current_time;
 
 var step = 0;
+var correct_steps = 0;
 
 var options = [10,20,30,40];
 var n_options;
 var correct_option = 0;
 var worst = 1;
 
-var current_amount = 0;
-var total_correct = 0;
-var total_wrong = 0;
+var current_amount = 0.0;
+var total_correct = 0.0;
+var total_wrong = 0.0;
 
 function go() {
 	document.getElementById('config').style.display ="none";
 	document.getElementById('playfield').style.display ="";
 	current_time = new Date().getTime();
 	tim = window.setInterval(action, 100);
+	
+	data = shuffle(data);
 	create_options();
 	setTimeout(function() {clearInterval(tim);}, 300250);
 }
@@ -44,6 +47,7 @@ function create_options(){
 		r.setAttribute("id", "option_"+String(i));
 		r.onclick = Selected;
 		r.addEventListener("mouseover", MouseOver, false);
+		r.addEventListener("mousemove", MouseOver, false);
 		r.addEventListener("mouseout", MouseOut, false);
 		r.setAttribute("style", "fill:white; stroke:#999; stroke-width:3");
 		r.setAttribute("rx", "10");
@@ -69,6 +73,7 @@ function create_options(){
 	update_options();
 }
 
+
 function number_of_options(){
 	res = 3;
 	if(document.getElementById('level_1').checked) {res = 2};
@@ -78,9 +83,11 @@ function number_of_options(){
 }
 
 function Selected(e){
+	ClearAdvise();
 	id = e.currentTarget.id[7];
 	v = options[id];
 	if (id==correct_option) {
+		correct_steps++;
 		total_correct = total_correct + current_amount;
 		document.getElementById("t_correct").textContent = Math.round(total_correct*10.0)/10.0;
 	} else {
@@ -96,17 +103,17 @@ function update_options(){
 	} else {
 	
 		// compute the amount options
-		current_amount = data[step][5];
+		current_amount = parseFloat(data[step][5].replace(",","."));
 		correct_option = Math.floor(1.0 * n_options * Math.random());
 		worst = (correct_option+1) % 3;
 		for (i=0; i< n_options; i++){
 			if (i==correct_option){ 
-				amount = current_amount;
+				amount = Math.round(current_amount*10.0)/10.0;
 			} else {
 				amount = Math.round(Math.random()*1000)/10.0;
 			};
 			t_elem = document.getElementById("option_text_"+String(i));
-			t_elem.textContent = String(amount) + " mlrd";
+			t_elem.textContent = String(amount) + " млрд";
 		}
 		
 		//fill the contract data
@@ -143,23 +150,42 @@ function MouseOut(e){
 	e.currentTarget.setAttribute("style", "fill:white; stroke:#999; stroke-width:3");
 }
 
+function ClearAdvise(){
+	for (var i=0; i<n_options; i++){
+		elem_id = "option_"+String(i);
+		elem = document.getElementById(elem_id);
+		elem.setAttribute("style", "fill:white; stroke:#999; stroke-width:3");
+	};
+}
+
 function finalize(){
-	alert ('Done!');
-};
+	document.getElementById('playfield').style.display ="none";
+	document.getElementById('results').style.display ="";
+	final_time = (parseInt((new Date().getTime()-current_time)/60000)).toString() + " мин " 
+		+ (parseInt((new Date().getTime()-current_time)/10000)%6).toString()
+		+ (parseInt(((new Date().getTime()-current_time)/1000)%10)).toString() + " сек";
+	final_step = step;
+	final_correct = correct_steps;
+	final_amount = total_correct;
+	document.getElementById('res_time').innerHTML = final_time;
+	document.getElementById('res_steps').innerHTML = final_step;
+	document.getElementById('res_correct').innerHTML = final_correct;
+	document.getElementById('res_correct_amount').innerHTML = String(final_amount) + " млрд рублей";
+}
 
 function WrapText(input_line){
 
     var MAXIMUM_CHARS_PER_LINE = 48;
 
-    var words = String(input_line).split(" ");
+    var words = input_line.split(" ");
     var cur_line = "";
 	var res = [];
 	//alert (words);
     for (var num = 0; num < words.length; num++) {
-        var testLine = cur_line + String(words[num]) + " ";
+        var testLine = cur_line + words[num] + " ";
 		if(num == words.length - 1) {
 			if (testLine.length > MAXIMUM_CHARS_PER_LINE){
-				res.push(cur_line); res.push(String(words[num]));
+				res.push(cur_line); res.push(words[num]);
 			} else {
 				res.push(testLine);
 			};
@@ -178,4 +204,23 @@ function WrapText(input_line){
 	
 	return res;
 	
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
