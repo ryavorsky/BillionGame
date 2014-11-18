@@ -10,6 +10,20 @@ rect.menu {
 	stroke-width:10;
 }
 
+text {
+	pointer-events: none;
+	fill:#fff ;
+	font-family:arial; 
+	font-size: 28px;
+}
+
+text.contract {
+	pointer-events: auto;
+	fill:#fff ;
+	font-family:arial; 
+	font-size: 28px;
+}
+
 text.title {
 	fill:#dfd;
 	font-family:arial; 
@@ -25,13 +39,6 @@ text.subtitle {
 	fill: #207;
 }
 
-
-text {
-	pointer-events: none;
-	fill:#fff ;
-	font-family:arial; 
-	font-size: 28px;
-}
 
 body {
 background-color: #fff;

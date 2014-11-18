@@ -106,6 +106,8 @@ function update_options(){
 		current_amount = parseFloat(data[step][5].replace(",","."));
 		correct_option = Math.floor(1.0 * n_options * Math.random());
 		worst = (correct_option+1) % 3;
+		
+		// fill the contract price options
 		for (i=0; i< n_options; i++){
 			if (i==correct_option){ 
 				amount = Math.round(current_amount*10.0)/10.0;
@@ -116,8 +118,12 @@ function update_options(){
 			t_elem.textContent = String(amount) + " млрд";
 		}
 		
+		// reference to the contract details
+		t_elem = document.getElementById("t_descr0");
+		
+		t_elem.innerHTML = '<a xlink:href="http://clearspending.ru/contract/'+data[step][0]+'/"> № ' + String(data[step][0]) + "</a>";
 		//fill the contract data
-		for (j=0; j<5; j++){
+		for (j=1; j<5; j++){
 			if (j<3){
 				elem_id = "t_descr"+String(j);
 				t_elem = document.getElementById(elem_id);
@@ -166,11 +172,11 @@ function finalize(){
 		+ (parseInt(((new Date().getTime()-current_time)/1000)%10)).toString() + " сек";
 	final_step = step;
 	final_correct = correct_steps;
-	final_amount = total_correct;
+	final_amount = Math.round(total_correct*10.0)/10.0;
 	document.getElementById('res_time').innerHTML = final_time;
 	document.getElementById('res_steps').innerHTML = final_step;
 	document.getElementById('res_correct').innerHTML = final_correct;
-	document.getElementById('res_correct_amount').innerHTML = String(final_amount) + " млрд рублей";
+	document.getElementById('res_correct_amount').innerHTML = String(final_amount) + " млрд ";
 }
 
 function WrapText(input_line){
